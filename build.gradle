@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version "2.10.0"
+}
+
+group 'guru.qa'
+version '2.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+allure {
+    report {
+        version.set("2.19.0")   // версия Allure Report (https://github.com/allure-framework/allure2)
+    }
+    adapter {                   // собирает результаты тестов в json и отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) // обработка аннотации @Step
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.19.0") //версия Allure JUnit5 (https://github.com/allure-framework/allure-java)
+            }
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    implementation 'com.codeborne:selenide:6.7.3'
+    implementation group: 'org.aeonbits.owner', name: 'owner', version: '1.0.4'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.1'
+    implementation group: 'io.qameta.allure', name: 'allure-selenide', version: '2.19.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
+
+task studentRegistration_test(type: Test) {
+    useJUnitPlatform{
+        includeTags "studentRegistration"
+    }
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
