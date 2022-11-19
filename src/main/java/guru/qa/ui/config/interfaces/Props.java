@@ -1,14 +1,21 @@
 package guru.qa.ui.config.interfaces;
 
 import org.aeonbits.owner.Config;
-import org.aeonbits.owner.ConfigFactory;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
-@Config.Sources({"file:src/test/resources/system.properties"})
-public interface Props extends Config{
+@Config.Sources({
+        "classpath:config/local.properties",
+        "system:properties"
+})
+public interface Props extends Config {
 
-    Props props = ConfigFactory.create(Props.class);
-
-    @Key("automation-practice-form.url")
-    String automationPracticeFormURL();
+    @DefaultValue("chrome")
+    String browser();
+    String browserVersion();
+    @DefaultValue("1920x1080")
+    @Key("browserSize")
+    String browserSize();
+    String browserMobileView();
+    String remoteDriverUrl();
+    String videoStorage();
 }

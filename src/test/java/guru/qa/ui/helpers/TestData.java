@@ -1,4 +1,4 @@
-package guru.qa.helpers;
+package guru.qa.ui.helpers;
 
 import org.junit.jupiter.params.provider.Arguments;
 

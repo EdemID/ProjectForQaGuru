@@ -1,7 +1,6 @@
 package guru.qa.ui.helpers;
 
-import com.codeborne.selenide.Selenide;
-import guru.qa.ui.utils.DriverUtils;
+import guru.qa.ui.config.DriverConfig;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -17,7 +16,6 @@ import java.nio.charset.StandardCharsets;
 import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static guru.qa.ui.utils.Util.getSessionId;
-import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class CustomAttachments {
 
@@ -39,7 +37,7 @@ public class CustomAttachments {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + getSessionId() + ".mp4";
+        String videoUrl = String.format("https://%svideo/%s.mp4", DriverConfig.config.remoteDriverUrl(), getSessionId());
 
         try {
             return new URL(videoUrl);
@@ -49,8 +47,8 @@ public class CustomAttachments {
         return null;
     }
 
-    public static void addVideoAsInputStream(String sessionId) {
-        URL videoUrl = DriverUtils.getVideoUrl(sessionId);
+    public static void addVideoAsInputStream() {
+        URL videoUrl = getVideoUrl();
         if (videoUrl != null) {
             InputStream videoInputStream = null;
             sleep(1000);
@@ -67,6 +65,8 @@ public class CustomAttachments {
             }
             if (videoInputStream != null) {
                 Allure.addAttachment("Video", "video/mp4", videoInputStream, "mp4");
+
+                Allure.addAttachment("Video", "video/webm", videoInputStream, "webm");
             }
         }
     }
