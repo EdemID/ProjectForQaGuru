@@ -37,7 +37,7 @@ public class CustomAttachments {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = String.format("https://%svideo/%s.mp4", DriverConfig.config.remoteDriverUrl(), getSessionId());
+        String videoUrl = DriverConfig.config.videoStorage() + getSessionId() + ".mp4";
 
         try {
             return new URL(videoUrl);
