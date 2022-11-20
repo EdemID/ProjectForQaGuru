@@ -9,11 +9,11 @@
 - <a href="#gradle-launch">Запуск проекта из терминала</a>
 - <a href="#jenkins-launch">Запуск проекта из Jenkins</a>
 - <a href="#notebook_with_decorative_cover-реализованные-проверки">Реализованные проверки</a>
-- [Отчеты](#-отчеты-о-прохождении-тестов)
+- [Отчеты](#-отчеты)
 - - [Allure](#-allure)
-- -[Allure TestOps](#-allure-testops)
+- - [Allure TestOps](#-allure-testops)
 - - [Telegram](#-telegram)
-- <a href="#film_projector-видеозапись-тестов">Видеозапись тестов</a>
+- <a href="#видеозапись-тестов">Видеозапись тестов</a>
 
 ## <a name="description">Описание</a>
 Данный проект содержит автоматизированные тесты UI, API и Mobile для следующих продуктов соответственно:
