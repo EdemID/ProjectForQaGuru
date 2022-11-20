@@ -9,10 +9,11 @@
 - <a href="#gradle-launch">Запуск проекта из терминала</a>
 - <a href="#jenkins-launch">Запуск проекта из Jenkins</a>
 - <a href="#notebook_with_decorative_cover-реализованные-проверки">Реализованные проверки</a>
-- [Отчеты](#bar_chart-отчеты-о-прохождении-тестов)
+- [Отчеты](#-отчеты-о-прохождении-тестов)
 - - [Allure](#-allure)
+- -[Allure TestOps](#-allure-testops)
 - - [Telegram](#-telegram)
-- <a href="#film_projector-видео-примеры-прохождения-тестов">Видеозапись тестов</a>
+- <a href="#film_projector-видеозапись-тестов">Видеозапись тестов</a>
 
 ## <a name="description">Описание</a>
 Данный проект содержит автоматизированные тесты UI, API и Mobile для следующих продуктов соответственно:
@@ -67,6 +68,8 @@ gradle clean test -Dtag=<tag> -Dplatform=<platform> -Denv=<env>
 
 ## <a id="jenkins-launch"></a><img width="5%" title="Jenkins" src="images/logo/Jenkins.svg"> <a href=https://jenkins.autotests.cloud/job/HomeworkQaGuru/>Запуск проекта из Jenkins</a>
 
+<img src="https://user-images.githubusercontent.com/110110734/202859544-d8c8b67d-1dcf-48b0-8d80-6170ec8f19a4.png" alt="Jenkins">
+
 Параметризованная сборка проекта
 
 <a href="https://jenkins.autotests.cloud/job/HomeworkQaGuru/build?delay=0sec"><img src="https://user-images.githubusercontent.com/110110734/202859544-d8c8b67d-1dcf-48b0-8d80-6170ec8f19a4.png" alt="Jenkins">
@@ -99,6 +102,14 @@ gradle clean ...
 
 <img width="3%" title="Allure" src="img/logo/Allure_TO.svg"> 
 
+<a id="telegram"></a>
+## <a href="https://t.me/qaGguruHw_14_edemID_bot"><img alt="Telegram" src="images/logo/Telegram.svg" width="5%"/> Telegram</a>
+
+Пример уведомления в Telegram-бот по окончании выполнения тестов
+
+<img src="img/screen/Bot.jpg" alt="Telegram"/>
+
+## Видеозапись тестов
 <a id="selenoid"></a>
 ## <img alt="Selenoid" src="images/logo/Selenoid.svg" width="5%"/> Selenoid</a>
 
@@ -116,12 +127,6 @@ gradle clean ...
 <video src="https://user-images.githubusercontent.com/110110734/202863081-112a3796-fd9d-40ce-9684-392458f28ee8.mp4"
 controls="controls" style="max-width: 730px;" poster="/external/logos/Browserstack.svg"></video>
 
-<a id="telegram"></a>
-## <a href="https://t.me/qaGguruHw_14_edemID_bot"><img alt="Telegram" src="images/logo/Telegram.svg" width="5%"/> Telegram</a>
-
-Пример уведомления в Telegram-бот по окончании выполнения тестов
-
-<img src="img/screen/Bot.jpg" alt="Telegram"/>
 
 :heart:
 :blue_heart: 
