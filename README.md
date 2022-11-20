@@ -3,7 +3,6 @@
 <img title="GitHub Test Page" src="images/logo/auto.gif">
 </p>
 
-
 ## Содержание:
 - <a href="#description">Описание</a>
 - <a href="#технологии-и-инструменты">Технологии и инструменты</a>
@@ -15,7 +14,6 @@
 - - [Telegram](#-telegram)
 - <a href="#film_projector-видео-примеры-прохождения-тестов">Видеозапись тестов</a>
 
-UI тесты реализованы на проверке 
 ## <a name="description">Описание</a>
 Данный проект содержит автоматизированные тесты UI, API и Mobile для следующих продуктов соответственно:
 > - <a target="_blank" href="https://career.habr.com/">Хабр Карьера</a>
@@ -67,11 +65,11 @@ gradle clean test -Dtag=<tag> -Dplatform=<platform> -Denv=<env>
 В зависимости от выбранной платформы и окружения, будет использоваться определенный property файл
 
 
-## <img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> <a href=https://jenkins.autotests.cloud/job/HomeworkQaGuru/>Запуск проекта из Jenkins</a>
+## <a id="jenkins-launch"></a><img width="5%" title="Jenkins" src="images/logo/Jenkins.svg"> <a href=https://jenkins.autotests.cloud/job/HomeworkQaGuru/>Запуск проекта из Jenkins</a>
 
-Страница проекта в Jenkins
+Параметризованная сборка проекта
 
-<a href="https://jenkins.autotests.cloud/job/chitai-gorod/"><img src="https://user-images.githubusercontent.com/110110734/202859544-d8c8b67d-1dcf-48b0-8d80-6170ec8f19a4.png" alt="Jenkins">
+<a href="https://jenkins.autotests.cloud/job/HomeworkQaGuru/build?delay=0sec"><img src="https://user-images.githubusercontent.com/110110734/202859544-d8c8b67d-1dcf-48b0-8d80-6170ec8f19a4.png" alt="Jenkins">
 </a>
 
 Параметры сборки:
@@ -88,75 +86,42 @@ gradle clean ...
 ## Отчеты о прохождении тестов
 
 <a id="allure"></a>
-## <a href="https://jenkins.autotests.cloud/job/chitai-gorod/allure/"><img alt="Allure" height="50" src="external/Allure.svg" width="50"/>Allure</a>
+## <a href="https://jenkins.autotests.cloud/job/HomeworkQaGuru/allure/"><img alt="Allure" src="images/logo/Allure_Report.svg" width="5%"/> Allure</a>
 
 Пример Allure отчёта
 
-<table>
-    <tr>
-        <td>
-        <a href="https://user-images.githubusercontent.com/110110734/202859651-ba7db225-1307-42d1-a756-acb5ee53464a.png">
-        <img src="https://user-images.githubusercontent.com/110110734/202859651-ba7db225-1307-42d1-a756-acb5ee53464a.png">
-        </a>
-        </td>
-        </tr>
-        <tr>
-        <td>
-        <a href="https://user-images.githubusercontent.com/110110734/202859732-4dc2727f-69bf-4828-9d87-08ead0eb67e4.png">
-        <img src="https://user-images.githubusercontent.com/110110734/202859732-4dc2727f-69bf-4828-9d87-08ead0eb67e4.png">
-        </a>
-        </td>
-</table>
+<img src="img/screen/AllureTests.jpg" alt="Allure"/>
 
 <a id="allure-testops"></a>
-## <a href="https://allure.autotests.cloud/project/1687/dashboards"><img alt="Allure TestOps" height="50" src="external/Allure TestOps.svg" width="50"/>Allure TestOps</a>
+## <a href="https://allure.autotests.cloud/project/1687/dashboards"><img alt="Allure TestOps" src="images/logo/Allure_EE.svg" width="5%"/> Allure TestOps</a>
 
 Пример Allure TestOps отчёта
 
-<table>
-    <tr>
-        <td>
-        <a href="https://user-images.githubusercontent.com/110110734/202862964-974dfa9d-55ef-4a77-8406-2bc6952ea790.png">
-        <img src="https://user-images.githubusercontent.com/110110734/202862964-974dfa9d-55ef-4a77-8406-2bc6952ea790.png">
-        </a>
-        </td>
-   </tr>
-        <tr>
-        <td>
-        <a href="https://user-images.githubusercontent.com/110110734/202862978-f86145e3-4d34-4d7e-a0bb-35af7f5115a3.png">
-        <img src="https://user-images.githubusercontent.com/110110734/202862978-f86145e3-4d34-4d7e-a0bb-35af7f5115a3.png">
-        </a>
-        </td>
-        </tr>
-        <td>
-        <a href="https://user-images.githubusercontent.com/110110734/202862981-42f72adc-1519-4a39-bfd6-5f011ea82552.png">
-        <img src="https://user-images.githubusercontent.com/110110734/202862981-42f72adc-1519-4a39-bfd6-5f011ea82552.png">
-        </a>
-        </td>
-</table>
+<img width="3%" title="Allure" src="img/logo/Allure_TO.svg"> 
 
 <a id="selenoid"></a>
-## <img alt="Selenoid" height="50" src="external/Selenoid.svg" width="50"/> Selenoid</a>
+## <img alt="Selenoid" src="images/logo/Selenoid.svg" width="5%"/> Selenoid</a>
 
-Видео-пример выполнения UI-теста с помощью Selenoid
+Видеозапись UI-теста в Selenoid
 
-<video src="https://user-images.githubusercontent.com/110110734/202859382-0d5509e0-a5a8-4c7f-9df0-9d8bcf16fc2f.mp4"
-controls="controls" style="max-width: 730px;" poster="/external/logos/Selenoid.svg"></video>
+<p align="center">
+  <img title="Video" src="img/gif/test.gif">
+</p>
 
 <a id="browserstack"></a>
-## <img alt="Browserstack" height="45" src="external/Browserstack.svg" width="45"/> Browserstack</a>
+## <img alt="Browserstack" src="images/logo/Browserstack.svg" width="4%"/> Browserstack</a>
 
-Видео-пример выполнения Mobile-теста с помощью Browserstack
+Видеозапись Mobile-теста в Browserstack
 
 <video src="https://user-images.githubusercontent.com/110110734/202863081-112a3796-fd9d-40ce-9684-392458f28ee8.mp4"
 controls="controls" style="max-width: 730px;" poster="/external/logos/Browserstack.svg"></video>
 
 <a id="telegram"></a>
-## <a href="https://t.me/chitai_gorod_tests_bot"><img alt="Telegram" height="50" src="external/Telegram.svg" width="50"/>Telegram</a>
+## <a href="https://t.me/qaGguruHw_14_edemID_bot"><img alt="Telegram" src="images/logo/Telegram.svg" width="5%"/> Telegram</a>
 
 Пример уведомления в Telegram-бот по окончании выполнения тестов
 
-![Telegram screenshot](https://user-images.githubusercontent.com/110110734/202859925-48e64223-96aa-41b1-9a32-2ca475a547c5.png)
+<img src="img/screen/Bot.jpg" alt="Telegram"/>
 
 :heart:
 :blue_heart: 
