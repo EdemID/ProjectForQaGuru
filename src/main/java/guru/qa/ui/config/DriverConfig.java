@@ -16,7 +16,7 @@ public class DriverConfig {
     private static ChromeOptions chromeOptions = new ChromeOptions();
 
     public static void driverSetup() {
-        Configuration.baseUrl = System.getProperty("baseUrl", "https://demoqa.com");  // "https://demoqa.com"
+        Configuration.baseUrl = config.baseUrl();
         Configuration.browser = config.browser();
         Configuration.browserSize = config.browserSize();
         String browserName = config.browser();

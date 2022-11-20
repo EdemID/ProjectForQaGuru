@@ -9,6 +9,8 @@ import org.aeonbits.owner.Config;
 })
 public interface Props extends Config {
 
+    String baseUrl();
+
     @DefaultValue("chrome")
     @Key("browser.name")
     String browser();

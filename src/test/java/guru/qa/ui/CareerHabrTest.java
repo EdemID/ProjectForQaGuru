@@ -2,6 +2,7 @@ package guru.qa.ui;
 
 import com.codeborne.selenide.Condition;
 import guru.qa.BaseTest;
+import guru.qa.ui.config.DriverConfig;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,7 @@ import static io.qameta.allure.Allure.step;
 
 public class CareerHabrTest extends BaseTest {
 
-     String url = "https://career.habr.com/";
+    private String url = DriverConfig.config.baseUrl();
 
     @Test
     @DisplayName("Go to the tab \"Salaries in IT\"")
