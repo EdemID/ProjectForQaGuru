@@ -16,10 +16,10 @@ public class DriverConfig {
     private static ChromeOptions chromeOptions = new ChromeOptions();
 
     public static void driverSetup() {
-        Configuration.baseUrl = config.baseUrl();
-        Configuration.browser = config.browser();
-        Configuration.browserSize = config.browserSize();
         String browserName = config.browser();
+        Configuration.baseUrl = config.baseUrl();
+        Configuration.browser = browserName;
+        Configuration.browserSize = config.browserSize();
         String remote = config.remoteDriverUrl();
         if (remote != null) {
             Configuration.remote = remote; // "https://user1:1234@selenoid.autotests.cloud/wd/hub"
@@ -27,13 +27,7 @@ public class DriverConfig {
             capabilities.setCapability("enableVideo", true);
         }
         if ("chrome".equals(browserName)){
-            chromeOptions.addArguments("lang=ru-ru");
-            chromeOptions.addArguments("--no-sandbox");
-            chromeOptions.addArguments("--disable-infobars");
-            chromeOptions.addArguments("--disable-popup-blocking");
-            chromeOptions.addArguments("--disable-notifications");
-            capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-
+            setChromeOptions();
             if (config.browserMobileView() != null) {
                 Map<String, Object> mobileDevice = new HashMap<>();
                 mobileDevice.put("deviceName", config.browserMobileView());
@@ -41,5 +35,14 @@ public class DriverConfig {
             }
         }
         Configuration.browserCapabilities = capabilities;
+    }
+
+    private static void setChromeOptions() {
+        chromeOptions.addArguments("lang=ru-ru");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-infobars");
+        chromeOptions.addArguments("--disable-popup-blocking");
+        chromeOptions.addArguments("--disable-notifications");
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
     }
 }

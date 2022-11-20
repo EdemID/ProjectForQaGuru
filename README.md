@@ -35,8 +35,8 @@
 <img width="6%" title="Telegram" src="images/logo/Telegram.svg">
 <img width="6%" title="RestAssured" src="images/logo/Rest-Assured.png">
 <a href="https://qameta.io/"><img alt="Allure TestOps" src="images/logo/Allure_EE.svg" width="6%"/></a>
-<a href="https://appium.io/"><img alt="Appium" src="images/logo/Appium.svg" width="6%"/></a>
-<a href="https://www.browserstack.com/"><img alt="Browserstack" src="images/logo/Browserstack.svg" width="6%"/></a>
+<a href="https://appium.io/"><img alt="Appium" src="images/logo/Appium.svg" width="5%"/></a>
+<a href="https://www.browserstack.com/"><img alt="Browserstack" src="images/logo/Browserstack.svg" width="5%"/></a>
 </p>
 
 <a id="gradle-launch"></a>
