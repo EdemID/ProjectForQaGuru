@@ -16,7 +16,7 @@
 - <a href="#видеозапись-тестов">Видеозапись тестов</a>
 
 ## <a name="description">Описание</a>
-Данный проект содержит автоматизированные тесты UI, API и Mobile для следующих продуктов соответственно:
+Данный многомодульный проект Gradle содержит автоматизированные тесты UI, API и Mobile для следующих продуктов соответственно:
 > - <a target="_blank" href="https://career.habr.com/">Хабр Карьера</a>
 > - <a target="_blank" href="https://hh.ru/">HH</a>
 > - <a target="_blank" href="https://career.habr.com/">Хабр Карьера</a>

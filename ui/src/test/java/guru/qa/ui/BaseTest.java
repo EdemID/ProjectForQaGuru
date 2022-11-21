@@ -1,4 +1,4 @@
-package guru.qa;
+package guru.qa.ui;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
