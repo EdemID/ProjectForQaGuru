@@ -19,4 +19,11 @@ public class TestData {
                 arguments("lemon", 2, Arrays.asList("x", "y"))
         );
     }
+
+    static Stream<Arguments> chooseSpecAndQualification() {
+        return Stream.of(
+                Arguments.of("Quality Assurance", "Middle", "Инженер по ручному тестированию"),
+                Arguments.of("Software Development", "Lead", "разработчик")
+        );
+    }
 }

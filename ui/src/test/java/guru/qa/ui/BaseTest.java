@@ -18,7 +18,6 @@ public abstract class BaseTest {
 
     @BeforeEach
     void beforeEachTest() {
-        // Добавляет сценарий - не шаги, а действия над элементами
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 

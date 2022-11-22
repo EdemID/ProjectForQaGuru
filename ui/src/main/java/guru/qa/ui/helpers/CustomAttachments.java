@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 
 import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static guru.qa.ui.utils.Util.getSessionId;
+import static guru.qa.ui.utils.DriverUtils.getSessionId;
 
 public class CustomAttachments {
 
