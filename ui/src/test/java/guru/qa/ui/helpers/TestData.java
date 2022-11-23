@@ -20,7 +20,7 @@ public class TestData {
         );
     }
 
-    static Stream<Arguments> chooseSpecAndQualification() {
+    static Stream<Arguments> selectSpecAndQualificationInVacancies() {
         return Stream.of(
                 Arguments.of("Quality Assurance", "Middle", "Инженер по ручному тестированию"),
                 Arguments.of("Software Development", "Lead", "разработчик")
