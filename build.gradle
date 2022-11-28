@@ -1,8 +1,15 @@
 group 'guru.qa'
 version '2.0-SNAPSHOT'
 
+def allureVersion = "2.19.0",
+    restAssuredVersion = "5.1.1",
+    assertJVersion = "3.23.1",
+    junitVersion = "5.9.0",
+    slf4jVersion = "1.7.32"
+
 subprojects {
     apply plugin: "java"
+    apply plugin: "io.qameta.allure"
 
     repositories {
         mavenCentral()
@@ -13,6 +20,9 @@ subprojects {
         implementation group: 'org.aeonbits.owner', name: 'owner', version: '1.0.4'
         implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.1'
         implementation group: 'io.qameta.allure', name: 'allure-selenide', version: '2.19.0'
+        implementation(
+                "org.assertj:assertj-core:$assertJVersion"
+        )
     }
 
     test {
@@ -36,5 +46,29 @@ subprojects {
     }
     compileTestJava {
         options.encoding = 'UTF-8'
+    }
+
+    allure {
+        report {
+            version.set("2.19.0")
+        }
+        adapter {
+            aspectjWeaver.set(true)
+            frameworks {
+                junit5 {
+                    adapterVersion.set("2.19.0")
+                }
+            }
+        }
+    }
+}
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "io.qameta.allure.gradle.allure:allure-plugin:2.11.2"
     }
 }
