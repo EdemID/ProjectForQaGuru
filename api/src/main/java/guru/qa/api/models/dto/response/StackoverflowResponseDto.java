@@ -1,4 +1,4 @@
-package guru.qa.api.models.pojo.response;
+package guru.qa.api.models.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StackoverflowResponse {
+public class StackoverflowResponseDto {
 
     @JsonProperty("Success")
     private boolean success;

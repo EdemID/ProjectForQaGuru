@@ -1,6 +1,6 @@
 package guru.qa.api;
 
-import guru.qa.api.models.pojo.response.VacancyResponse;
+import guru.qa.api.models.dto.response.VacancyResponseDto;
 import guru.qa.api.specs.VacancySpec;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -17,7 +17,7 @@ public class HeadHunterTest {
     @Test
     @DisplayName("Check vacancy names")
     void getVacancies() {
-        List<VacancyResponse> vacancies = given()
+        List<VacancyResponseDto> vacancies = given()
                 .spec(VacancySpec.vacancyRequestSpec)
                 .when()
                 .get("?text=qa&search_field=name&experience=between1And3&area=1")
@@ -25,7 +25,7 @@ public class HeadHunterTest {
                 .spec(VacancySpec.vacancyResponseSpec)
                 .extract()
                 .body()
-                .jsonPath().getList("items", VacancyResponse.class);
+                .jsonPath().getList("items", VacancyResponseDto.class);
 
         vacancies.forEach(vacancy -> {
             assertThat(vacancy.getName()).contains("QA");
