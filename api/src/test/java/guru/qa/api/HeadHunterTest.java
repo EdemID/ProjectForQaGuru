@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HeadHunterTest {
 
     @Test
-    @DisplayName("Check vacancy names")
+    @DisplayName("Check vacancy name and area")
     void getVacancies() {
         List<VacancyResponseDto> vacancies = given()
                 .spec(VacancySpec.vacancyRequestSpec)
@@ -29,6 +29,8 @@ public class HeadHunterTest {
 
         vacancies.forEach(vacancy -> {
             assertThat(vacancy.getName()).contains("QA");
+
+            assertThat(vacancy.getArea().get("name")).contains("Москва");
         });
     }
 }

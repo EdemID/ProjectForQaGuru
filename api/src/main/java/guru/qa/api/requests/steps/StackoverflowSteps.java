@@ -13,7 +13,7 @@ import static io.restassured.RestAssured.given;
 
 public class StackoverflowSteps {
 
-    @Step("Log In")
+    @Step("Log in")
     public static Response logIn() {
         return given()
                 .log().uri()

@@ -1,4 +1,5 @@
 rootProject.name = 'HomeworkQaGuru'
 
 include 'ui', 'api'
+include 'mobile'
 

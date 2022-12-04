@@ -1,0 +1,20 @@
+plugins {
+    id "io.freefair.lombok" version "6.0.0-m2"
+}
+
+def appiumVersion = "8.1.1",
+    commonsIoVersion = "2.11.0"
+
+dependencies {
+    implementation 'com.codeborne:selenide:6.10.1', "io.qameta.allure:allure-selenide:2.19.0"
+    implementation 'io.rest-assured:rest-assured:5.3.0','io.qameta.allure:allure-rest-assured:2.19.0'
+    implementation(
+            "io.appium:java-client:$appiumVersion",
+            "commons-io:commons-io:$commonsIoVersion")
+}
+
+task mobile_test(type: Test) {
+    useJUnitPlatform{
+        includeTags "Mobile"
+    }
+}
