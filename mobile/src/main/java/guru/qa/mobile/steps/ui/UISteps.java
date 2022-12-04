@@ -20,11 +20,9 @@ public class UISteps {
         $(AppiumBy.id("com.todoist:id/btn_log_in")).click();
 
         if ($(AppiumBy.id("com.todoist:id/action_bar_root")).exists()) {
-            $(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[2]")).click();
+            $(AppiumBy.id("android:id/button2")).click();
         }
-//        $(AppiumBy.id("com.todoist:id/toolbar")).should(Condition.exist);
     }
-
     @Step("Создать новую задачу")
     public static void createNewTaskStep(String taskTitle, String taskDescription) {
         $(AppiumBy.id("com.todoist:id/fab")).click();

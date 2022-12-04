@@ -55,7 +55,7 @@ public class TodoistTest extends BaseTest{
         });
 
         step("Проверяем, что задача исчезла из списка задач на Сегодня", () -> {
-            $(AppiumBy.id("com.todoist:id/item")).shouldNot(Condition.exist);
+            $(AppiumBy.id("com.todoist:id/item")).shouldNotBe(Condition.visible);
         });
     }
 
@@ -78,7 +78,7 @@ public class TodoistTest extends BaseTest{
         });
 
         step("Проверяем, что задача исчезла из списка задач на Сегодня", () -> {
-            $(AppiumBy.id("com.todoist:id/item")).shouldNot(Condition.exist);
+            $(AppiumBy.id("com.todoist:id/item")).shouldNotBe(Condition.visible);
         });
     }
 
