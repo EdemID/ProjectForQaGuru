@@ -16,10 +16,7 @@
 - <a href="#видеозапись-тестов">Видеозапись тестов</a>
 
 ## <a name="description">Описание</a>
-Данный многомодульный проект Gradle содержит автоматизированные тесты UI, API и Mobile для следующих продуктов соответственно:
-> - <a target="_blank" href="https://career.habr.com/">Хабр Карьера</a>
-> - <a target="_blank" href="https://hh.ru/">HH</a>
-> - <a target="_blank" href="https://career.habr.com/">Хабр Карьера</a>
+Данный проект является многомодульным и содержит автоматизированные тесты UI, API и Mobile. Сборка -  Gradle. CI/CD - Jenkins
 
 ## Технологии и инструменты
 <p align="center">
@@ -42,28 +39,24 @@
 <a id="gradle-launch"></a>
 ## :computer: Запуск проекта из терминала
 
-Для запуска тестов с помощью Gradle используется команда:
+Запуск UI тестов:
 ```bash
-gradle clean test -Dtag=<tag> -Dplatform=<platform> -Denv=<env>
+gradle clean ui_test -Dbrowser.name=<name> -Dbrowser.size=<size>
 ```
-`tag` - выбор вида тестов:
->- *api*
->- *ui*
->- *mobile*
+Запуск API тестов:
+```bash
+gradle clean api_test
+```
+Запуск Mobile тестов на локальном эмуляторе:
+```bash
+gradle clean mobile_test -Denv=local -DdeviceHost=emulation
+```
+Запуск Mobile тестов в browserstack:
+```bash
+gradle clean mobile_test -Denv=remote -DdeviceHost=browserstack 
+```
 
-`platform` - платформа:
->- *\<не задаётся\> (для API тестов)*
->- *ui*
->- *mobile*
-
-`env` - окружение, на котором будут выполнятся тесты:
->- *\<не задаётся\> (для API тестов)*
->- *remote (для UI)*
->- *real (для Mobile)*
->- *browserstack (для Mobile)*
->- *local (для UI и Mobile тестов)*
-
-В зависимости от выбранной платформы и окружения, будет использоваться определенный property файл
+В зависимости от выбранных env и deviceHost, будет использоваться определенный property файл
 
 
 ## <a id="jenkins-launch"></a><img width="5%" title="Jenkins" src="images/logo/Jenkins.svg"> <a href=https://jenkins.autotests.cloud/job/HomeworkQaGuru/>Запуск проекта из Jenkins</a>
