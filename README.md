@@ -38,7 +38,7 @@
 </p>
 
 <a id="gradle-launch"></a>
-## :computer: Запуск проекта из терминала
+## :computer: Запуск проекта
 
 Запуск UI тестов:
 ```bash
