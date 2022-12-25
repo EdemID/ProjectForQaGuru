@@ -15,6 +15,12 @@ import static io.restassured.RestAssured.given;
 public class StackoverflowSteps {
 
     private Props props = new Props();
+    private Map<String, String> cookies;
+    private String fkey;
+    
+    public void setCookies(Map<String, String> cookies) {
+        this.cookies = cookies;
+    }
 
     @Step("Log in")
     public Response logIn() {
@@ -30,7 +36,7 @@ public class StackoverflowSteps {
     }
 
     @Step("Get Stackoverflow post as HTML")
-    private static Response getStackoverflowPostAsHtml(Map<String, String> cookies, String postUrl) {
+    private Response getStackoverflowPostAsHtml(String postUrl) {
         return given()
                 .log().uri()
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")
@@ -39,22 +45,22 @@ public class StackoverflowSteps {
     }
 
     @Step("Get key from javascript element on page")
-    public static String getKeyFromJavascriptElementOnPage(Map<String, String> cookies, String postUrl) {
-        Response stackoverflowPostAsHtmlResponse = getStackoverflowPostAsHtml(cookies, postUrl);
+    public void getKeyFromJavascriptElementOnPage(String postUrl) {
+        Response stackoverflowPostAsHtmlResponse = getStackoverflowPostAsHtml(postUrl);
         String scriptContent = JSOUPParser.parsingJavascriptElement(stackoverflowPostAsHtmlResponse.prettyPrint());
 
-        return JSONParser.getKeyFromScriptContentFormatJson(scriptContent);
+        fkey = JSONParser.getKeyFromScriptContentFormatJson(scriptContent);
     }
 
     @Step("Bookmark post")
-    public static StackoverflowResponseDto saveBookmarkPost(Map<String, String> cookies, String fkey, String postUrl) {
+    public StackoverflowResponseDto saveBookmarkPost(String postUrl) {
         StackoverflowResponseDto dto = given()
                 .log().uri()
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                 .cookies(cookies)
                 .body("fkey=" + fkey)
                 .post(postUrl + "/save")
-                .then().log().body()
+                .then().log().all()
                 .extract().as(StackoverflowResponseDto.class);
 
         StackoverflowRequest.confirmPreviousAction(cookies);
@@ -63,7 +69,7 @@ public class StackoverflowSteps {
     }
 
     @Step("Remove post from bookmark")
-    public static void removePostFromBookmark(Map<String, String> cookies, String fkey, String postUrl) {
+    public void removePostFromBookmark(String postUrl) {
         given()
                 .log().uri()
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")

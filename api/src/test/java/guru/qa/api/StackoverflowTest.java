@@ -9,26 +9,25 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.util.Map;
-
 @Tag("API")
 public class StackoverflowTest {
 
     private  StackoverflowSteps steps = new StackoverflowSteps();
 
     @ParameterizedTest(name = "Bookmark post on Stackoverflow: {0}")
-    @ValueSource(strings = "https://stackoverflow.com/questions/48378897/rest-assured-vs-cucumber")
+    @ValueSource(strings = {
+            "https://stackoverflow.com/questions/74913906/update-ids-values-by-sorted-timestamp-with-sql",
+            "https://stackoverflow.com/questions/48378897/rest-assured-vs-cucumber"
+    })
     void savePost(String postUrl) {
         postUrl = StringEditor.editPostUrl(postUrl);
-
         Response loginResponse = steps.logIn();
-        Map<String, String> cookies = loginResponse.cookies();
-
-        String fkey = StackoverflowSteps.getKeyFromJavascriptElementOnPage(cookies, postUrl);
-        StackoverflowResponseDto saveResponse = StackoverflowSteps.saveBookmarkPost(cookies, fkey, postUrl);
+        steps.setCookies(loginResponse.cookies());
+        steps.getKeyFromJavascriptElementOnPage(postUrl);
+        StackoverflowResponseDto saveResponse = steps.saveBookmarkPost(postUrl);
 
         Assertions.assertTrue(saveResponse.isSuccess());
 
-        StackoverflowSteps.removePostFromBookmark(cookies, fkey, postUrl);
+        steps.removePostFromBookmark(postUrl);
     }
 }
