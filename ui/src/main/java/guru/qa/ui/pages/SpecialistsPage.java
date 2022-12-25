@@ -20,8 +20,8 @@ public class SpecialistsPage extends BasePage {
     }
 
     @Step("Select a additionally")
-    public SpecialistsPage selectAdditionally(String values) {
-        $x("//*[contains(text(), '" + values + "')]/parent::label").click();
+    public SpecialistsPage selectAdditionally(String value) {
+        $x("//*[contains(text(), '" + value + "')]/parent::label").click(); //$(byText(values)).closest("label")
 
         return this;
     }

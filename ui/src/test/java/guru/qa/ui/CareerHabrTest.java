@@ -33,7 +33,7 @@ public class CareerHabrTest extends BaseTest {
     @ParameterizedTest(name = "Select specialization {0} and qualification {1}")
     @MethodSource("guru.qa.ui.helpers.TestData#selectSpecAndQualificationInVacancies")
     void selectSpecAndQualificationInVacancies(String spec, String qual, String expectedSpec) {
-        mainPage.openPage(url);
+        mainPage.openHomePage(url);
         VacanciesPage vacanciesPage = mainPage.openVacanciesPage();
         vacanciesPage
                 .selectSpecialization(spec)
@@ -44,11 +44,11 @@ public class CareerHabrTest extends BaseTest {
 
     @ParameterizedTest(name = "Select location {0} and additionally {1}")
     @CsvSource(value = {"Ростов-на-Дону, С дополнительным образованием, С доп. образованием", "Москва, Указана зарплата, Указана зарплата"})
-    void selectLocationAndAdditionally(String city, String values, String expectedValue) {
-        mainPage.openPage(url);
-        mainPage.goPageFromTopMainMenu("Специалисты", SpecialistsPage.class)
+    void selectLocationAndAdditionally(String city, String value, String expectedValue) {
+        mainPage.openHomePage(url);
+        mainPage.goToSection("Специалисты", SpecialistsPage.class)
                 .selectLocation(city)
-                .selectAdditionally(values)
+                .selectAdditionally(value)
                 .checkSelectedFilters(city)
                 .checkSelectedFilters(expectedValue);
     }

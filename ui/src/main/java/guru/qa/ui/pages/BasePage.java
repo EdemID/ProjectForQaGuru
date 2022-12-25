@@ -16,7 +16,7 @@ public abstract class BasePage {
 
     @Step("Check selected filters")
     public BasePage checkSelectedFilters(String text) {
-        FILTERS.$(withText(text)).shouldHave(Condition.text(text));
+        FILTERS.$(withText(text)).shouldHave(Condition.visible);
 
         return this;
     }
