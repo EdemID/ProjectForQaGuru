@@ -14,12 +14,14 @@ import java.util.Map;
 @Tag("API")
 public class StackoverflowTest {
 
+    private  StackoverflowSteps steps = new StackoverflowSteps();
+
     @ParameterizedTest(name = "Bookmark post on Stackoverflow: {0}")
     @ValueSource(strings = "https://stackoverflow.com/questions/48378897/rest-assured-vs-cucumber")
     void savePost(String postUrl) {
         postUrl = StringEditor.editPostUrl(postUrl);
 
-        Response loginResponse = StackoverflowSteps.logIn();
+        Response loginResponse = steps.logIn();
         Map<String, String> cookies = loginResponse.cookies();
 
         String fkey = StackoverflowSteps.getKeyFromJavascriptElementOnPage(cookies, postUrl);

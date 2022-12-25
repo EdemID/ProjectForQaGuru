@@ -4,6 +4,7 @@ import guru.qa.api.models.dto.response.StackoverflowResponseDto;
 import guru.qa.api.requests.defaultRequests.StackoverflowRequest;
 import guru.qa.api.util.JSONParser;
 import guru.qa.api.util.JSOUPParser;
+import guru.qa.api.util.Props;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
@@ -13,13 +14,15 @@ import static io.restassured.RestAssured.given;
 
 public class StackoverflowSteps {
 
+    private Props props = new Props();
+
     @Step("Log in")
-    public static Response logIn() {
+    public Response logIn() {
         return given()
                 .log().uri()
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")
-                .formParam("email", "reset.limbo@gmail.com")
-                .formParam("password", "qw12as34zx!@")
+                .formParam("email", props.getEmail())
+                .formParam("password", props.getPassword())
                 .when()
                 .post("https://stackoverflow.com/users/login")
                 .then()
