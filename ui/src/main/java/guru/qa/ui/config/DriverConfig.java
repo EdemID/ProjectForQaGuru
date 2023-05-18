@@ -24,16 +24,16 @@ public class DriverConfig {
         if (remote != null) {
             Configuration.remote = remote; // "https://user1:1234@selenoid.autotests.cloud/wd/hub"
             capabilities.setCapability("enableVNC", true);
-            capabilities.setCapability("enableVideo", true);
+//            capabilities.setCapability("enableVideo", true);
         }
-        if ("chrome".equals(browserName)){
-            setChromeOptions();
-            if (config.browserMobileView() != null) {
-                Map<String, Object> mobileDevice = new HashMap<>();
-                mobileDevice.put("deviceName", config.browserMobileView());
-                chromeOptions.setExperimentalOption("mobileEmulation", mobileDevice);
-            }
-        }
+//        if ("chrome".equals(browserName)){
+//            setChromeOptions();
+//            if (config.browserMobileView() != null) {
+//                Map<String, Object> mobileDevice = new HashMap<>();
+//                mobileDevice.put("deviceName", config.browserMobileView());
+//                chromeOptions.setExperimentalOption("mobileEmulation", mobileDevice);
+//            }
+//        }
         Configuration.browserCapabilities = capabilities;
     }
 

@@ -18,12 +18,12 @@ public abstract class BaseTest {
 
     @AfterEach
     void afterEachTest() {
-        CustomAttachments.screenshotAs("Скриншот последней страницы");
-        CustomAttachments.pageSource();
-        if (DriverConfig.config.remoteDriverUrl() != null) {
-            CustomAttachments.addVideoAsHtml();
-            CustomAttachments.addVideoAsInputStream();
-        }
+//        CustomAttachments.screenshotAs("Скриншот последней страницы");
+//        CustomAttachments.pageSource();
+//        if (DriverConfig.config.remoteDriverUrl() != null) {
+//            CustomAttachments.addVideoAsHtml();
+//            CustomAttachments.addVideoAsInputStream();
+//        }
         Selenide.closeWebDriver();
     }
 }
