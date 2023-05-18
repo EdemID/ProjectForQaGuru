@@ -16,6 +16,7 @@ public class DriverConfig {
     private static ChromeOptions chromeOptions = new ChromeOptions();
 
     public static void driverSetup() {
+        Configuration.pageLoadStrategy = "eager";
         String browserName = config.browser();
         Configuration.baseUrl = config.baseUrl();
         Configuration.browser = browserName;
